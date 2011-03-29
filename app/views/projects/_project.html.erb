@@ -1,0 +1,10 @@
+<tr class="<%= cycle('even', 'odd') -%>">
+  <td style="text-align: left"><%= h project.name -%></td>
+  <td><%= status_icon(project.active) -%></td>
+  <td><%= h project.started_on -%></td>
+  <td><%= h project.ticket -%></td>
+  <td><%= link_to_view project_path(project) -%></td>
+  <td><%= link_to_edit edit_project_path(project) -%></td>    
+  <td><%= link_to_delete project, :confirm => 'Are you sure?', :method => :delete -%></td>
+  <td><%= link_to_excel create_excel_project_path(project) -%></td>  
+</tr>

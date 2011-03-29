@@ -1,0 +1,28 @@
+<% form_tag projects_path, :method => "get" do %>
+	<strong>Please add the search parameters that you will like to use:</strong>
+	<BR>
+	<BR>
+	<table>
+		<tbody>		
+			<tr>
+				<td>Project Name:</td>
+				<td class="small_padding"><%= text_field_tag :search_project_name %></td>
+				<td>Active:</td>
+				<td><%=  select_tag :search_active, options_for_select([["", nil], ["Yes", "yes"], ["No", "no"]]) %></td>
+			</tr>				
+			<tr>
+				<td>Started from:</td>
+				<td><%= calendar_date_select_tag :from, nil, :size => 10, :popup => :force %></td>
+				<td>Started until:</td>
+				<td><%= calendar_date_select_tag :until, nil, :size => 10, :popup => :force %></td>
+			</tr>
+			<tr>
+				<td colspan="4" align="center">
+					<%= submit_tag "Search", :name => nil%>
+					&nbsp; 
+					<input type="reset" value="Reset">
+				</td>			
+			</tr>		
+		</tbody>
+	</table>
+<% end %>

@@ -1,0 +1,48 @@
+<% title "Edit Walkthrough Issue" %>
+
+<h2><%= h yield(:title)%></h2>
+
+<div class="show-div">
+  <%= flash_messages %>
+
+  <br/>
+
+  <table border="0" cellpadding="3" cellspacing="3">
+    <tr>
+      <th>Issue ID</th>
+      <td><%= h @walkthrough.issue %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= wordwrap h(@walkthrough.description) %></td>
+    </tr>
+    <tr>
+      <th>URL</th>
+      <td><%= wordwrap h(@walkthrough.url) %></td>
+    </tr>
+    <tr>
+      <th>Severity</th>
+      <td><%= h severity_string(@walkthrough.severity) %></td>
+    </tr>
+    <tr>
+      <th>User</th>
+      <td><%= wordwrap h(@walkthrough.user) %></td>
+    </tr>
+    <tr>
+      <th>Owner</th>
+      <td><%= wordwrap h @walkthrough.owner %></td>
+    </tr>
+    <tr>
+      <th>Resolved</th>
+      <td><%= status_icon(@walkthrough.resolved) %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= link_to "Edit", edit_project_walkthrough_path(@project, @walkthrough) %>
+        |
+        <%= link_to 'View All', project_walkthroughs_path(@project) %>
+      </td>
+    </tr>
+  </table>
+</div>
+

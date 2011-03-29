@@ -1,0 +1,11 @@
+
+<%- title "Database Files" -%>
+<%= render :partial => 'index_section',
+  :locals => {
+    :action_list => %w[Add Update Delete],
+    :section_value => 'DB',
+    :table_caption => 'Database changes',
+    :form_url => create_db_section_project_deployments_url(@project),
+    :search_url => db_section_project_deployments_url(@project)
+  }
+%>

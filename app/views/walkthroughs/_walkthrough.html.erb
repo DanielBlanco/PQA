@@ -1,0 +1,13 @@
+
+<tr class="<%= cycle("even", "odd") %>">
+	<td><%= link_to h(walkthrough.issue), project_walkthrough_path(project, walkthrough), :title => "View Issue" %></td>
+	<%= td(walkthrough.description, 35, { :title => walkthrough.user }) %>
+	<td><%= view_url walkthrough.url %></td>
+	<%= td(severity_string(walkthrough.severity)) %>
+	<%= td(walkthrough.owner, 15, { :title => walkthrough.user }) %>
+	<%= td(walkthrough.user, 15, { :title => walkthrough.user }) %>
+	<td><%= status_icon(walkthrough.resolved) %></td>
+	<td><%= link_to_view project_walkthrough_path(project, walkthrough) %></td>
+	<td><%= link_to_edit edit_project_walkthrough_path(project, walkthrough) %></td>
+	<td><%= link_to_delete [project, walkthrough], :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

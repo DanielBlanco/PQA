@@ -1,0 +1,65 @@
+#RB_overlay {
+  position: absolute;
+  z-index:100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height:100%;
+  background-color: #000;
+  opacity: .6;
+  filter: alpha(opacity=60);
+}
+
+#RB_window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 102;
+  /*line-height: 0;*/
+}
+
+#RB_loading {
+  margin: 65px auto 0 auto;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  background: #FFF url(../images/redbox_spinner.gif) no-repeat center center;
+}
+
+.redbox_contents {
+  margin: 65px auto;
+  text-align: left;
+  background-color: white;
+  padding: 3px;
+  border: thin solid #000;
+  width: 300px;
+  background-color: #FFFFFF; /*#FDFCE9;*/
+}
+.redbox_contents p {
+  text-align: justify;
+}
+
+#RB_window a:link,
+#RB_window a:visited,
+#RB_window a:active,
+#RB_window a:hover {
+  font-weight: bold;
+  color: #2B65B3;
+  font-family: Arial,sans-serif;
+  text-decoration: none;
+  float: none;
+  padding: 0;
+}
+
+.redbox_title {
+  font-weight: normal;
+  font-size: 1.4em;
+  font-family: Arial,sans-serif;
+  font-style: italic; 
+}

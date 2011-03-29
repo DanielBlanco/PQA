@@ -1,0 +1,38 @@
+<% title "Show Configuration" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<%= flash_messages %>
+
+<br/>
+
+<div class="show-div">
+  <table border="0" cellpadding="3" cellspacing="3">
+    <tr>
+      <th>Name</th>
+      <td><%= h @configuration.name %></td>
+    </tr>
+    <tr>
+      <th>Created At</th>
+      <td><%= h @configuration.created_at.to_s(:short) %></td>
+    </tr>
+    <tr>
+      <th>Updated At</th>
+      <td><%= h @configuration.updated_at.to_s(:short) %></td>
+    </tr>
+    <tr>
+      <th>Values</th>
+      <td><%= wordwrap h @configuration.config_values %></td>
+    </tr>
+    <tr>
+      <td>
+        <%= link_to "Edit", edit_configuration_path(@configuration) %>
+        |
+        <%= link_to 'View All', configurations_path %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+

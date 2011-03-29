@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Online PQA">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title><%= h(yield(:title) || "Manager")%></title>
+
+    <%= stylesheet_link_tag 'nifty_corners' %>
+    <%= stylesheet_link_tag 'redbox' %>
+    <%= stylesheet_link_tag 'application' %>
+
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'niftycube' %>
+    <%= javascript_include_tag 'redbox' %>
+
+    <%= calendar_date_select_includes "white" %>
+
+    <script type="text/javascript">
+      window.onload=function() {
+        Nifty("div#container");
+        Nifty("ul#nav a","small transparent top");
+        Nifty("div#content","same-height small");
+        Nifty("div#header", "top small fixed-height");
+        <%= yield :nifty_onload%>
+      }
+    </script>
+
+    <%= yield :head%>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>Online PQA</h1>
+        <div class="header-links">
+          <%= link_to "Projects", projects_path %>
+          |
+          <%= link_to "Settings", configurations_path %>
+          |
+          <%= link_to "Environment Specifics", envspecifics_path %>
+        </div>
+      </div>
+      <%= display_menu %>
+      <div id="content">
+        <br/>
+        <%= yield %>
+        <br/>
+      </div>
+      <div id="footer">
+        <%= link_to "Bookmark this page", bookmark("PQA") %>
+        .
+        <%= link_to "Business Mashups", business_mashups_url %>
+        .
+        <%= link_to "About", about_path %>
+        ·
+        <%= link_to "Privacy", privacy_path %>
+
+        <span id="footerCopyright">&copy; 2009 <%= link_to "TSYS", "http://www.tsys.com", :popup => true %> PQA</span>
+      </div>
+    </div>
+
+    <!-- For lightboxes. -->
+    <div id="RB_redbox" style="margin: auto;"></div>
+  </body>
+</html>

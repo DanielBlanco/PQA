@@ -1,0 +1,50 @@
+.deployment_table {
+	/*border: 1px solid #000;*/
+	width: 100%;
+}
+.deployment_table caption {
+	font-weight: bold;
+}
+.deployment_table th {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #fff;
+	background-color: #2B65B3;
+}
+
+.section {
+	background-color: #ccc;
+	font-weight: bold;
+}
+
+div#deployments_menu {
+    width: 100%;
+    height: 25px;
+		margin-bottom: 5px;
+}
+ul#deployments_nav,
+ul#deployments_nav li{list-style-type:none;margin:0;padding:0}
+ul#deployments_nav{margin-left: 0px;width:950px}
+ul#deployments_nav li{float:left;margin-right: 3px;text-align: center}
+ul#deployments_nav a:link,
+ul#deployments_nav a:hover,
+ul#deployments_nav a:visited,
+ul#deployments_nav a:active {
+    background: #6D8F08 none repeat scroll 0 0;
+    color: #fff;
+    float: left;
+    padding: 5px 0;
+    text-decoration: none;
+    width: 150px;
+    white-space: nowrap;
+    font-size: 9pt;
+}
+ul#deployments_nav a:hover{
+    background: #99CC00 none repeat scroll 0 0;
+    color: #fff;
+}
+ul#deployments_nav li.activelink a, ul#deployments_nav li.activelink a:hover {
+    background:#E7E7E7 none repeat scroll 0 0;
+    color:#000033;
+    font-size: 9pt;
+}

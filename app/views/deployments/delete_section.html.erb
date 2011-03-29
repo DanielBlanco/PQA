@@ -1,0 +1,11 @@
+
+<%- title "Files to Delete" -%>
+<%= render :partial => 'index_section',
+  :locals => {
+    :action_list => %w[Delete],
+    :section_value => 'Delete',
+    :table_caption => 'The following files will be deleted',
+    :form_url => create_delete_section_project_deployments_url(@project),
+    :search_url => delete_section_project_deployments_url(@project)
+  }
+%>

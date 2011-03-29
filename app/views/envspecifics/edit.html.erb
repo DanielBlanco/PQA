@@ -1,0 +1,11 @@
+<% title "Edit Environment Specific File" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<%= flash_messages %>
+
+<% form_for(@envspecific) do |form| %>
+  <%= render :partial => form %>
+<% end %>
+
+<%= link_to 'Back', envspecifics_path %>

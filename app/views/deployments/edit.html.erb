@@ -1,0 +1,6 @@
+<% title "Edit Deployment Entry" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<%= render :partial => 'form', :locals => { :file_action_list => file_action_list(@deployment.section) } %>
+

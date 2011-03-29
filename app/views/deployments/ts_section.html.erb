@@ -1,0 +1,11 @@
+
+<%- title "Technical Service Files" -%>
+<%= render :partial => 'index_section',
+  :locals => {
+    :action_list => %w[Add Update Delete],
+    :section_value => 'TS',
+    :table_caption => 'Technical Service Tickets',
+    :form_url => create_ts_section_project_deployments_url(@project),
+    :search_url => ts_section_project_deployments_url(@project)
+  }
+%>

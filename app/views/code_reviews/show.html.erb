@@ -1,0 +1,37 @@
+<% title "Show Unit Test" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<%= flash_messages %>
+
+<br/>
+
+<div class="show-div">
+  <table border="0" cellpadding="3" cellspacing="3">
+    <%
+    [["Module", @code_review.module],
+     ["Line Number", @code_review.line_number],
+     ["Description", @code_review.description],
+     ["Submitted by", @code_review.submitted_by],
+     ["Owner", @code_review.owner],
+     ["Ticket", @code_review.ticket]].each do |row| %>
+      <tr>
+        <th><%= h row[0] %></th>
+        <td><%= wordwrap h row[1] %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <th>Resolved</th>
+      <td><%= status_icon(@code_review.resolved) %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= link_to "Delete", [@project, @code_review], :confirm => 'Are you sure?', :method => :delete %>
+        |
+        <%= link_to "Edit", edit_project_code_review_path(@project, @code_review) %>
+        |
+        <%= link_to 'View All', project_code_reviews_path(@project) %>
+      </td>
+    </tr>
+  </table>
+</div>

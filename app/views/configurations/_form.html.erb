@@ -1,0 +1,35 @@
+<% form_for @configuration do |f| %>
+	<div class="form-div">
+		<table align="center" border="0" cellpadding="3" cellspacing="3">
+			<tr>
+				<th><%= f.label :name %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the name for this configuration.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :name %>
+					<%= f.error_message_on :name %>
+				</td>
+			</tr>
+			<tr>
+				<th><%= f.label :config_values %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the values to this configuration, separate values with a comma (,).</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :config_values %>
+					<%= f.error_message_on :config_values %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.submit "Save" %>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>

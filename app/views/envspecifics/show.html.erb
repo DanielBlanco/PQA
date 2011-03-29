@@ -1,0 +1,10 @@
+<div class="show-div">
+  <table border="0" cellpadding="3" cellspacing="3">
+    <tr>
+      <th>File:</th>
+      <td><%= wordwrap h @envspecific.file %></td>
+    </tr>
+</div>
+
+<%= link_to 'Edit', edit_envspecific_path(@envspecific) %> |
+<%= link_to 'Back', envspecifics_path %>

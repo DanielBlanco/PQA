@@ -1,0 +1,45 @@
+<% title "Environment Specific File's List" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<%= create_search (envspecifics_path, :search_file) %>
+
+<%- form_tag multiple_create_envspecifics_url(), :id => 'multi_objs' do -%>
+  <%= flash_messages %>
+  <%= error_messages_for :multi_objs_error %>
+  <%= page_field_tag %>
+
+  <br/>
+  <%= will_paginate @envspecifics %>
+  <table cellpadding="3" cellspacing="0" border="0" align="center" class="list_table">
+    <thead>
+      <tr>
+        <th>File<%=req :class => 'required_iform'%></th>
+        <th width="15%" colspan="2">Actions</th>
+      </tr>
+    <thead>
+    <tbody id="esf_table">
+      <% @envspecifics.each do |envspecific| %>
+        <tr class="<%= cycle('even', 'odd') -%>">
+          <td><%=h envspecific.file %></td>
+          <td><%= link_to_edit edit_envspecific_path(envspecific) %></td>
+          <td><%= link_to_delete envspecific, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      <% @multi_objs.each do |obj| %>
+        <%= render :partial => 'iform', :object => obj -%>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3"><%= add_iform_link 'New Environment Specific File', 'esf_table', Envspecific.new %></td>
+      </tr>
+      <tr>
+        <td colspan="3"><%= submit_tag 'Save All' -%></td>
+      </tr>
+      <tr>
+        <td colspan="3"><%= will_paginate @envspecifics %></td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

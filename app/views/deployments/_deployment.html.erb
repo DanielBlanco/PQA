@@ -1,0 +1,9 @@
+<tr>
+  <td title="<%=deployment.file-%>"><%= deployment.file.capitalize.etc(70) -%></td>
+  <td><%= deployment.file_type.capitalize.etc(25) -%></td>
+  <td><%= h(deployment.action) %></td>
+  <td style="text-align: center;"><%= status_icon(deployment.environment_specific) %></td>
+  <td><%= link_to_view project_deployment_path(@project, deployment) %></td>
+  <td><%= link_to_edit edit_project_deployment_path(@project, deployment) %></td>
+  <td><%= link_to_delete [@project, deployment], :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

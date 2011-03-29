@@ -1,0 +1,95 @@
+<% form_for [@project, @utest] do |f| %>
+  <div class="form-div">
+    <table align="center" border="0" cellpadding="3" cellspacing="3">
+      <tr>
+        <th><%= f.label :fsd_usecase_id %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the FSD use case id.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_field :fsd_usecase_id %>
+          <%= f.error_message_on :fsd_usecase_id %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :module %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the name of the module tested.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= select 'unit_test', 'module', modules_select_options %>
+          <%= f.error_message_on :module %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :description %><%= req %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the test description.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_area :description, :rows => 2 %>
+          <%= f.error_message_on :description %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :result %><%= req %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the desired test result.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_area :result, :rows => 2 %>
+          <%= f.error_message_on :result %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :pass_brands %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the brands where the testing was successfully.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_field :pass_brands, :rows => 2 %>
+          <%= f.error_message_on :pass_brands %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :fail_brands %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the brands where the testing fail.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_field :fail_brands, :rows => 2 %>
+          <%= f.error_message_on :fail_brands %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :notes %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide some extra notes about this test.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_area :notes, :rows => 2 %>
+          <%= f.error_message_on :notes %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.submit "Save" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>

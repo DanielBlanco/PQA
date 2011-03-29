@@ -1,0 +1,15 @@
+<!--
+TODO: We can move below code to a helper method.
+-->
+
+<%- title "Deployment File List" -%>
+<%= render :partial => 'index_section',
+  :locals => {
+    :action_list => %w[Add Update],
+    :section_value => '',
+    :table_caption => 'Java / JSP / Configs',
+    :form_url => project_deployments_url(@project),
+    :search_url => project_deployments_url(@project)
+  }
+%>
+

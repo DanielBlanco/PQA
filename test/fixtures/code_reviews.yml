@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  module: MyString
+  line_number: 1
+  description: MyText
+  submitted_by: MyString
+  owner: MyString
+  ticket: MyString
+  resolved: false
+
+two:
+  module: MyString
+  line_number: 1
+  description: MyText
+  submitted_by: MyString
+  owner: MyString
+  ticket: MyString
+  resolved: false

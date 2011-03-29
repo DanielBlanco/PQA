@@ -1,0 +1,30 @@
+TODO:
+1. Make configuration module more user friendly.
+2. Add a project description.
+3. Add teamtrack link to footer links.
+4. Add special build instruction to deployment module.
+5. Validate ticket with ticket type based on the first 2 characters of the ticket.
+6. Add unit tests for: Configuration and UnitTest.
+
+
+Online PQA Advantages:
+1. All PQA's in one place.
+2. Easier control over the project development.
+3. There are other PQAs to look at.
+4. Avoids file repetition.
+5. More control over the PQA.
+6. Easy to maintain and extend because it is done in Rails.
+7. Validation over the input data.
+8. Is online.
+9. It looks good!
+10. TSYS will be happy with it!
+
+Deployment:
+file		=> VSS path
+file_type	=> Java, JSP, Velocity, Image, Stylesheet, Javascript, Configuration, Mainframe Paquet...
+environment_specific => yes, no
+action		=> Add, Update, Delete
+ticket		=> Teamtrack ticket #
+ticket_type => Enhacement, Application Defect, Database, Technical Service, Batch
+
+

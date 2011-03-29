@@ -1,0 +1,35 @@
+<% title "Configurations's List" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<%= create_search(configurations_path, :search_name) %>
+
+<%= flash_messages %>
+
+<%= will_paginate @configurations %>
+
+<table cellpadding="3" cellspacing="0" border="0" align="center" class="list_table">
+  <thead>
+    <tr>
+      <th width="55%">Configuration Name</th>
+      <th width="10%">Created On</th>
+      <th width="15%">Updated On</th>
+      <th width="15%" colspan="2">Actions</th>
+    </tr>
+  <thead>
+  <tbody>
+  <% @configurations.each do |config| %>
+    <tr class="<%= cycle("even", "odd") %>">
+      <td style="text-align: left"><%= h config.name %></td>
+      <td><%= h config.created_at.to_s(:short) %></td>
+      <td><%= h config.updated_at.to_s(:short) %></td>
+      <td><%= link_to_view configuration_path(config) %></td>
+      <td><%= link_to_edit edit_configuration_path(config) %></td>
+    </tr>
+  <% end %>
+    <tr>
+      <td colspan="5"><%= will_paginate @configurations %></td>
+    </tr>
+
+  </tbody>
+</table>

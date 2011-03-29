@@ -1,0 +1,62 @@
+
+<div class="form-div">
+  <table align="center" border="0" cellpadding="3" cellspacing="3">
+    <tr>
+      <th><%= form.label :name %><%= req %></th>
+    </tr>
+    <tr>
+      <td class="label-description">Please provide the name for this project.</td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.text_field :name %>
+        <%= form.error_message_on :name %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :started_on %></th>
+    </tr>
+    <tr>
+      <td class="label-description">Please provide the start date for this project.</td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.calendar_date_select :started_on %>
+        <% #form.date_select :started_on %>
+        <%= form.error_message_on :started_on %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :ticket %></th>
+    </tr>
+    <tr>
+      <td class="label-description">Please provide the ticket associated to this project.</td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.text_field :ticket %>
+        <%= form.error_message_on :ticket %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= form.label :active %></th>
+    </tr>
+    <tr>
+      <td class="label-description">Check it if the project is active (hasn't been closed).</td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.check_box :active, { :class => 'check' }, :true, :false %>
+        <label for="project_active">
+          <%= image_tag "enabled_icon.png" %>
+        </label>
+        <%= form.error_message_on :active %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.submit "Save" %>
+      </td>
+    </tr>
+  </table>
+</div>

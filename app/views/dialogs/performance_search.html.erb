@@ -1,0 +1,35 @@
+<% form_tag project_performances_path(@project), :method => "get" do %>
+	<strong>Please add the search parameters that you will like to use:</strong>
+	<BR>
+	<BR>
+	<table>		
+		<tbody>		
+			<tr>
+				<td>Test Description:</td>
+				<td><%= text_field_tag :search_description %></td>
+				<td>URL/Component:</td>
+				<td><%= text_field_tag :search_url %></td>
+			</tr>
+			<tr>
+				<td>Tester:</td>
+				<td><%= text_field_tag :search_tester %></td>
+				<td>Environment:</td>												
+				<td><%= select_tag(:search_env, options_for_select([["", ""]] + environments_select_options))  %></td>
+			</tr>
+			<tr>
+				<td>Results/Comments:</td>
+				<td><%= text_field_tag :search_result %></td>
+				<td>Pass/Fail</td>
+				<td><%= select_tag(:search_pass_flag, options_for_select([["", ""], ["Pass", "true"], ["Fail", "false"]]))%></td>
+			</tr>
+			<tr>
+				<td colspan="4" align="center">
+					<%= submit_tag "Search", :name => nil%>
+					&nbsp; 
+					<input type="reset" value="Reset">
+				</td>			
+			</tr>
+		</tbody>
+	</table>
+<% end %>
+

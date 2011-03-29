@@ -1,0 +1,16 @@
+<tr>
+  <td style="text-align: left">
+    <%= inline_form.text_field :name, :size => 50 %>
+  </td>
+  <td>
+    <label for="project_active">
+      <%= status_icon(true) %>
+    </label>
+    <%= inline_form.check_box :active, { :class => 'check' }, :true, :false %>
+  </td>
+  <td><%= inline_form.calendar_date_select :started_on, :size => 10, :popup => :force%></td>
+  <td><%= inline_form.text_field :ticket, :size => 10%></td>
+  <td colspan="4">
+    <%= inline_form.submit "Save", :title => 'Save this project.' %>
+  </td>
+</tr>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyText
+  url: MyString
+  tester: MyString
+  environment: MyString
+  pass: false
+  results: MyText
+  project: 
+  lock_version: 1
+
+two:
+  description: MyText
+  url: MyString
+  tester: MyString
+  environment: MyString
+  pass: false
+  results: MyText
+  project: 
+  lock_version: 1

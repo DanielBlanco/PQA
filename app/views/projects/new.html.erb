@@ -1,0 +1,9 @@
+<% title "New Project" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<%= flash_messages %>
+
+<% form_for @project do |form| %>
+	<%= render :partial => form %>
+<%end %>

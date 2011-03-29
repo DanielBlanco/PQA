@@ -1,0 +1,9 @@
+<div id="deployments_menu">
+  <ul id="deployments_nav">
+    <%= dnav 'Added/Updated Files', project_deployments_url(@project), 'index,create' -%>
+    <%= dnav 'Delete Files', delete_section_project_deployments_url(@project), 'delete_section,create_delete_section' -%>
+    <%= dnav 'Database Files', db_section_project_deployments_url(@project), 'db_section,create_db_section' -%>
+    <%= dnav 'Technical Service Files', ts_section_project_deployments_url(@project), 'ts_section,create_ts_section' -%>
+    <%= dnav 'Batch Scripts Files', bs_section_project_deployments_url(@project), 'bs_section,create_bs_section' -%>
+  </ul>
+</div>

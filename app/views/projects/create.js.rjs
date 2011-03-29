@@ -1,0 +1,8 @@
+# RJS code to update the page.
+unless @project.errors.blank?
+  page.replace_html :flashes, error_messages_for('project')
+else
+  page.insert_html :bottom, :projects, :partial => 'project', :object => @project
+  page.replace_html :flashes, flash_messages
+end
+flash.discard

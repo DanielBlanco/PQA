@@ -1,0 +1,28 @@
+<div class="form-div">
+  <table align="center" border="0" cellpadding="3" cellspacing="3">
+    <tr>
+	  <th><%= form.label :file %><%= req %></th>
+    </tr>
+	<tr>
+      <td class="label-description">
+	    Please provide the path of the environment specific file using one of the following options:
+		<ul>
+		  <li><strong>Bank specific:</strong> $/ngus/Development/config/sites/NG_TS2Consumer/site_config.xml</li>
+		  <li><strong>Platform specific:</strong> $/ngus/*/site_cofig.xml</li>
+		  <li><strong>All files with name:</strong> /site_config.xml</li>
+		</ul>
+	  </td>
+    </tr>
+    <tr>
+	  <td>
+	    <%= form.text_field :file, :size => 75 %>
+	    <%= form.error_message_on :file %>
+	  </td>
+    </tr>
+    <tr>
+	  <td>
+	    <%= form.submit "Save" %>
+	  </td>
+    </tr>
+  </table>
+</div>

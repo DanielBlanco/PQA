@@ -1,0 +1,97 @@
+<% form_for [@project, @walkthrough] do |f| %>
+	<div class="form-div">
+		<table align="center" border="0" cellpadding="3" cellspacing="3">
+			<tr>
+				<th><%= f.label :issue %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the TeamTrack issue id.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :issue %>
+					<%= f.error_message_on :issue %>
+				</td>
+			</tr>
+			<tr>
+				<th><%= f.label :description %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide issue description.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_area :description, :rows => 2 %>
+					<%= f.error_message_on :description %>
+				</td>
+			</tr>
+			<tr>
+				<th><%= f.label :url %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the URL where the issue occurred.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :url %>
+					<%= f.error_message_on :url %>
+				</td>
+			</tr>
+			<tr>
+				<th><%= f.label :severity %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Select the issue severity level.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= select( "walkthrough", "severity", severity_array) %>
+					<%= f.error_message_on :serverity %>
+				</td>
+			</tr>
+			<tr>
+				<th><%= f.label :user %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the user accounts used when the issue occurred.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_area :user, :rows => 2 %>
+					<%= f.error_message_on :user %>
+				</td>
+			</tr>
+			<tr>
+				<th><%= f.label :owner %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the owner in charge to solve this issue.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :owner %>
+					<%= f.error_message_on :owner %>
+				</td>
+			</tr>
+			<tr>
+				<th><%= f.label :resolved %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Check it if the issue was resolved.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.check_box :resolved, { :class => 'check' }, :true, :false %>
+					<label for="walkthrough_resolved">
+						<%= image_tag "enabled_icon.png" %>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.submit "Save" %>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>

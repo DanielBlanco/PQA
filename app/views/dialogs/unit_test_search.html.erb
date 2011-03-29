@@ -1,0 +1,34 @@
+<% form_tag project_unit_tests_path(@project), :method => "get" do %>
+	<strong>Please add the search parameters that you will like to use:</strong>
+	<BR>
+	<BR>
+	<table>		
+		<tbody>		
+			<tr>
+				<td>Module:</td>
+				<td><%= select_tag(:search_module, options_for_select([["",""]] + modules_select_options), :include_blank => true) %></td>
+				<td>Description:</td>
+				<td><%= text_field_tag :search_description %></td>
+			</tr>
+			<tr>
+				<td>Result:</td>
+				<td><%= text_field_tag :search_result %></td>
+				<td>Pass brands:</td>
+				<td><%= text_field_tag :search_pass_brands%></td>
+			</tr>
+			<tr>
+				<td>Notes:</td>
+				<td><%= text_field_tag :search_notes%></td>
+				<td>Fail brands:</td>
+				<td><%= text_field_tag :search_fail_brands %></td>
+			</tr>
+			<tr>
+				<td colspan="4" align="center">
+					<%= submit_tag "Search", :name => nil%>
+					&nbsp; 
+					<input type="reset" value="Reset">
+				</td>			
+			</tr>
+		</tbody>
+	</table>
+<% end %>

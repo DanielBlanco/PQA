@@ -1,0 +1,92 @@
+<% form_for [@project, @performance] do |f| %>
+  <div class="form-div">
+    <table align="center" border="0" cellpadding="3" cellspacing="3">
+      <tr>
+        <th><%= f.label :description %><%= req %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the description of this test.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_area :description, :rows => 2 %>
+          <%= f.error_message_on :description %>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :url %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the URL to be tested.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_field :url %>
+          <%= f.error_message_on :url %>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :tester %><%= req %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the name of the tester.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_field :tester %>
+          <%= f.error_message_on :tester %>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :environment %><%= req %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the environment when the test is taking place.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= select 'performance', 'environment', environments_select_options %>
+          <%= f.error_message_on :environment %>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :pass %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Check it if the performance passed the test.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.check_box :pass, { :class => 'check' }, :true, :false %>
+          <label for="performance_pass">
+            <%= image_tag "enabled_icon.png" %>
+          </label>
+          <%= f.error_message_on :pass %>
+        </td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :result %><%= req %></th>
+      </tr>
+      <tr>
+        <td class="label-description">Please provide the results of this test.</td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_area :result, :rows => 2 %>
+          <%= f.error_message_on :results %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= f.submit "Save" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>

@@ -1,0 +1,53 @@
+<% form_for [@project, @deployment] do |f| %>
+	<div class="form-div">
+		<table align="center" border="0" cellpadding="3" cellspacing="3">
+			<!-- File -->
+			<tr>
+				<th><%= f.label :file %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the VSS file path.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :file %>
+					<%= f.error_message_on :file %>
+				</td>
+			</tr>
+		    <!-- File Type -->
+			<tr>
+				<th><%= f.label :file_type %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please select the type of the file.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= select 'deployment', 'file_type', file_types_select_options %>
+					<%= f.error_message_on :file_type %>
+				</td>
+			</tr>
+
+			<!-- action: Add, Update, Delete -->
+			<tr>
+				<th><%= f.label :action %></th>
+			</tr>
+			<tr>
+				<td class="label-description">New => Add, Existing => Update, Deleted => Delete</td>
+			</tr>
+			<tr>
+				<td>
+					<%= select 'deployment', 'action', file_action_list %>
+					<%= f.error_message_on :action %>
+				</td>
+			</tr>
+
+			<!-- Buttons... -->
+			<tr>
+				<td>
+					<%= f.submit "Save" %>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>

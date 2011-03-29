@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Project 1
+  started_on: 2009-01-27
+  ttrack: ER-0025580
+
+two:
+  id: 2
+  name: Project 2
+  started_on: 2009-01-27
+  ttrack: ER-0025581

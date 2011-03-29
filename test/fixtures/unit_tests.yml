@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fsd_usecase_id: MyString
+  module: MyString
+  description: MyText
+  result: MyText
+  brands: MyString
+  notes: MyString
+
+two:
+  fsd_usecase_id: MyString
+  module: MyString
+  description: MyText
+  result: MyText
+  brands: MyString
+  notes: MyString

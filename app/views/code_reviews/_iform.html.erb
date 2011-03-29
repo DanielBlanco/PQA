@@ -1,0 +1,17 @@
+<%- fields_for "multi_objs[]", iform do |f| -%>
+  <tr class="iform">
+    <td><%= f.select :module, modules_select_options %></td>
+    <td><%= f.text_field :line_number, :size => 5 %></td>
+    <td><%= f.text_field :description, :size => 24 %></td>
+    <td><%= f.text_field :submitted_by, :size => 12 %></td>
+    <td><%= f.text_field :owner, :size => 12 %></td>
+    <td><%= f.text_field :ticket, :size => 10 %></td>
+    <td>
+      <%= check_box_tag 'multi_objs[][resolved]', :true, check_box_value(i||=0, :resolved) %>
+      <%= status_icon(true) %>
+    </td>
+    <td colspan="3">
+      <%= link_to_function 'Remove', "$(this).up('.iform').remove();" %>
+    </td>
+  </tr>
+<%- end -%>

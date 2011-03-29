@@ -1,0 +1,18 @@
+<div class="search-form">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+        <%- form_tag path, :method => 'get' do -%>
+          <label><%=h(label)%></label>
+          <%= search_field_tag search_parameter, by_list -%>
+          <%= submit_tag "Search", :name => nil, :title => 'Search' -%>
+        <%- end -%>
+      </td>
+      <td><%= link_searchbox_to dlg_path, 'search_link', image_tag('16x16/system-search.png', :border=>0) unless dlg_path.nil? -%></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: right"><%= link_to 'Clear Search', path, :title => 'Clear Search' -%></td>
+    </tr>
+  </table>
+
+</div>

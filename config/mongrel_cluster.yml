@@ -1,0 +1,8 @@
+--- 
+address: 192.168.11.139
+log_file: log/mongrel.log
+port: "8000"
+cwd: /home/admin2k9/public_html/pqa
+environment: production
+pid_file: tmp/pids/mongrel.pid
+servers: 2

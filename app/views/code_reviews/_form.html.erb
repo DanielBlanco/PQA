@@ -1,0 +1,105 @@
+<% form_for [@project, @code_review] do |f| %>
+	<div class="form-div">
+		<table align="center" border="0" cellpadding="3" cellspacing="3">
+			<tr>
+				<th><%= f.label :module %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the name of the module tested.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= select 'code_review', 'module', modules_select_options %>
+					<%= f.error_message_on :module %>
+				</td>
+			</tr>
+			
+			<tr>
+				<th><%= f.label :line_number %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide code line number where the issue ocurred.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :line_number %>
+					<%= f.error_message_on :line_number %>
+				</td>
+			</tr>
+			
+			<tr>
+				<th><%= f.label :description %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the description.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_area :description, :rows => 2 %>
+					<%= f.error_message_on :description %>
+				</td>
+			</tr>
+			
+			<tr>
+				<th><%= f.label :submitted_by %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the person who is reporting this issue.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :submitted_by %>
+					<%= f.error_message_on :submitted_by %>
+				</td>
+			</tr>
+			
+			<tr>
+				<th><%= f.label :owner %><%= req %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the owner in charge to solve this issue.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :owner %>
+					<%= f.error_message_on :owner %>
+				</td>
+			</tr>
+
+			<tr>
+				<th><%= f.label :ticket %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Please provide the TeamTrack ticket #.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_field :ticket %>
+					<%= f.error_message_on :ticket %>
+				</td>
+			</tr>			
+			
+			<tr>
+				<th><%= f.label :resolved %></th>
+			</tr>
+			<tr>
+				<td class="label-description">Check if the code review issue was resolved.</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.check_box :resolved, { :class => 'check' }, :true, :false %>
+					<label for="code_review_resolved">
+						<%= image_tag "enabled_icon.png" %>
+					</label>
+					<%= f.error_message_on :resolved %>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<%= f.submit "Save" %>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>

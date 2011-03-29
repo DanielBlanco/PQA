@@ -1,0 +1,59 @@
+<% title "Perfomance's List" %>
+
+<h2>
+  <%=h(yield :title)%>
+  <%= link_infobox_to performance_note_dlg_url, 'perf_infobox_1' %>
+</h2>
+
+<%= create_search(project_performances_path(@project), :search_env, {:by_list => [["", ""]] + environments_select_options, :dlg_path => performance_search_dlg_url(@project.id)} ) %>
+
+<%- form_tag multiple_create_project_performances_url(@project), :id => 'multi_objs' do -%>
+  <%= flash_messages %>
+  <%= error_messages_for :multi_objs_error %>
+  <%= page_field_tag %>
+
+  <br/>
+  <%= will_paginate @performances %>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" class="list_table">
+    <thead>
+      <tr>
+        <th style="white-space: nowrap; width: 16%;">Test Description<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 15%;">URL/Component</th>
+        <th style="white-space: nowrap; width: 12%;">Tester<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 22%;">Environment</th>
+        <th style="white-space: nowrap; width: 8%;">Pass/Fail</th>
+        <th style="white-space: nowrap; width: 22%;">Results/Comments<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 5%;" colspan="3">Actions</th>
+      </tr>
+    <thead>
+    <tbody id="tbody">
+      <% @performances.each do |p| %>
+        <tr class="<%= cycle("even", "odd") %>">
+          <%= td(p.description, 15) %>
+          <td><%= view_url p.url, 15 %></td>
+          <%= td(p.tester, 15) %>
+          <%= td(p.environment, 25) %>
+          <td><%= status_icon(p.pass) %></td>
+          <%= td(p.result, 20) %>
+          <td><%= link_to_view project_performance_path(@project, p) %></td>
+          <td><%= link_to_edit edit_project_performance_path(@project, p) %></td>
+          <td><%= link_to_delete [@project, p], :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      <% @multi_objs.each_with_index do |obj, index| %>
+        <%= render :partial => 'iform', :object => obj, :locals => { :i => index } -%>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8"><%= add_iform_link 'New Input', 'tbody', @project.performances.new %></td>
+      </tr>
+      <tr>
+        <td colspan="8"><%= submit_tag 'Save All' -%></td>
+      </tr>
+      <tr>
+        <td colspan="8"><%= will_paginate @performances %></td>
+      </tr>
+    </tfoot>
+  </table>
+<%- end -%>

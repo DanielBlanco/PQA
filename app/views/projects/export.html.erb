@@ -1,0 +1,20 @@
+<% title "Export Project" %>
+
+<h2><%=h(yield :title)%></h2>
+
+<br>
+
+<table cellpadding="3" cellspacing="0" border="0" align="center" class="list_table">
+	<thead>
+		<tr>
+			<th width="55%">Project Name</th>
+			<th width="45%">Export to</th>			
+		</tr>
+	<thead>
+	<tbody>
+		<tr>
+			<td><%= @project.name %></td>
+			<td><%= link_to "Excel", create_excel_project_path(@project)%></td>
+	</tbody>
+</table>
+

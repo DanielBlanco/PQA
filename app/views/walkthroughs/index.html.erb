@@ -1,0 +1,49 @@
+<% title "Walkthrough's List" %>
+
+<h2>
+  <%= h yield(:title)%>
+  <%= link_infobox_to walkthrough_note_dlg_url, 'wt_infobox_1' %>
+  <%= link_to_rss project_walkthroughs_path(@project, :rss) %>
+</h2>
+
+<%= create_search(project_walkthroughs_path(@project), :search_description, { :dlg_path => walkthrough_search_dlg_url(@project.id) } ) %>
+
+<%- form_tag multiple_create_project_walkthroughs_url(@project), :id => 'multi_objs' do -%>
+  <%= flash_messages -%>
+  <%= error_messages_for :multi_objs_error %>
+  <%= page_field_tag %>
+
+  <%= will_paginate @walkthroughs %>
+  <br/>
+  <table cellpadding="0" cellspacing="0" border="0" class="list_table">
+    <thead>
+      <tr>
+        <th style="white-space: nowrap; width: 12%;">Issue ID</th>
+        <th style="white-space: nowrap; width: 25%;">Description<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 19%;">URL</th>
+        <th style="white-space: nowrap; width: 8%;">Severity</th>
+        <th style="white-space: nowrap; width: 13%;">Owner<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 13%;">User<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 5%;">Resolved</th>
+        <th style="white-space: nowrap; width: 5%;" colspan="3">&#160;</th>
+      </tr>
+    <thead>
+    <tbody id="wt_table">
+      <%= render :partial => 'walkthrough', :collection => @walkthroughs, :locals => { :project => @project } %>
+      <% @multi_objs.each_with_index do |obj, index| %>
+        <%= render :partial => 'iform', :object => obj, :locals => { :i => index } -%>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8"><%= add_iform_link 'New Issue', 'wt_table', @project.walkthroughs.new %></td>
+      </tr>
+      <tr>
+        <td colspan="8"><%= submit_tag 'Save All' -%></td>
+      </tr>
+      <tr>
+        <td colspan="8"><%= will_paginate @walkthroughs %></td>
+      </tr>
+    </tfoot>
+  </table>
+<%- end -%>

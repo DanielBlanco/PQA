@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  file: MyString
+  file_type: MyString
+  environment_specific: false
+  action: MyString
+  ticket: MyString
+  ticket_type: MyString
+
+two:
+  file: MyString
+  file_type: MyString
+  environment_specific: false
+  action: MyString
+  ticket: MyString
+  ticket_type: MyString

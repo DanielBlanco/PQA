@@ -1,0 +1,14 @@
+<%- fields_for "multi_objs[]", iform do |f| -%>
+  <tr class="iform">
+    <td><%= f.text_field :fsd_usecase_id, :size => 6 %></td>
+    <td><%= f.select :module, modules_select_options %></td>
+    <td><%= f.text_field :description, :size => 16 %></td>
+    <td><%= f.text_field :result, :size => 16 %></td>
+    <td><%= f.text_field :pass_brands, :size => 10 %></td>
+    <td><%= f.text_field :fail_brands, :size => 10 %></td>
+    <td><%= f.text_field :notes, :size => 14 %></td>
+    <td colspan="3">
+      <%= link_to_function 'Remove', "$(this).up('.iform').remove();" %>
+    </td>
+  </tr>
+<%- end -%>

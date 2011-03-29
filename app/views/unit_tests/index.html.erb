@@ -1,0 +1,63 @@
+
+<% title "Unit Test's List" %>
+
+<h2>
+  <%= h yield(:title)%>
+  <%= link_infobox_to unit_test_note_dlg_url, 'ut_infobox_1' %>
+  <%= link_to_rss project_unit_tests_path(@project, :rss) %>
+</h2>
+
+<%= create_search(project_unit_tests_path(@project), :search_module, {:by_list => [["", ""]] + modules_select_options, :dlg_path => unit_test_search_dlg_url(@project.id)} ) %>
+
+<%- form_tag multiple_create_project_unit_tests_url(@project), :id => 'multi_objs' do -%>
+  <%= flash_messages %>
+  <%= error_messages_for :multi_objs_error %>
+  <%= page_field_tag %>
+
+  <br/>
+  <%= will_paginate @utests %>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" class="list_table">
+    <thead>
+      <tr>
+        <th style="white-space: nowrap; width: 7%;">FSD ID</th>
+        <th style="white-space: nowrap; width: 21%;">Module</th>
+        <th style="white-space: nowrap; width: 16%;">Description<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 16%;">Result<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 10%;">Pass brands<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 10%;">Fail brands<%=req :class => 'required_iform'%></th>
+        <th style="white-space: nowrap; width: 15%;">Notes</th>
+        <th style="white-space: nowrap; width: 5%;" colspan="3">&nbsp;</th>
+      </tr>
+    <thead>
+    <tbody id="wt_table">
+      <% @utests.each do |ut| %>
+        <tr class="<%= cycle("even", "odd") %>">
+          <%= td ut.fsd_usecase_id, 11%>
+          <%= td ut.module, 25, { :title => ut.module }  %>
+          <%= td ut.description, 20, { :title => ut.description } %>
+          <%= td ut.result, 20, { :title => ut.result } %>
+          <%= td ut.pass_brands, 10, { :title => ut.pass_brands } %>
+          <%= td ut.fail_brands, 10, { :title => ut.fail_brands } %>
+          <%= td ut.notes, 20, { :title => ut.notes } %>
+          <td><%= link_to_view project_unit_test_path(@project, ut) %></td>
+          <td><%= link_to_edit edit_project_unit_test_path(@project, ut) %></td>
+          <td><%= link_to_delete [@project, ut], :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      <% @multi_objs.each do |obj| %>
+        <%= render :partial => 'iform', :object => obj -%>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8"><%= add_iform_link 'New Input', 'wt_table', @project.unit_tests.new %></td>
+      </tr>
+      <tr>
+        <td colspan="8"><%= submit_tag 'Save All' -%></td>
+      </tr>
+      <tr>
+        <td colspan="8"><%= will_paginate @utests %></td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

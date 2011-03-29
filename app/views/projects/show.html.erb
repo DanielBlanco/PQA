@@ -1,0 +1,30 @@
+<div id="flashes"><%= flash_messages %></div>
+
+<div class="show-div">
+	<table cellpadding="3" cellspacing="3">
+		<thead>
+			<tr>
+				<th colspan="2">Development Workbook</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Project:</th>
+				<td width="90%"><%= link_to h(@project.name), edit_project_path(@project) %></td>
+			</tr>
+			<tr>
+				<th>Date:</th>
+				<td><%= h(@project.started_on) %></td>
+			</tr>
+			<tr>
+				<th>Ttrack #:</th>
+				<td><%= h(@project.ticket) %></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<%= image_tag "tsys_projects_flow.png" %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

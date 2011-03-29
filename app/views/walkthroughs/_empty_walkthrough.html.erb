@@ -1,0 +1,13 @@
+
+<tr class="<%= cycle("even", "odd") %> wt_input">
+	<td><%= text_field_tag :search_issue_id, params[:search_issue_id] %></td>
+	<td><%= text_field_tag :search_description, params[:search_description] %></td>
+	<td><%= text_field_tag :search_url, params[:search_url] %></td>
+	<td><%= select_tag :search_severity, options_for_select([["", -1]] + severity_array, params[:search_severity]) %></td>
+	<td><%= text_field_tag :search_owner, params[:search_owner] %></td>
+	<td><%= select_tag :search_resolved, options_for_select([["", nil], ["Yes", true], ["No", false]], (params[:search_resolved].nil? || params[:search_resolved].blank?) ? "Yes" : params[:search_resolved].to_b) %></td>
+	<td colspan="3">
+		<%= link_to_function 'Remove', "this.up('.wt_input').remove();" %>
+	</td>
+	
+</tr>

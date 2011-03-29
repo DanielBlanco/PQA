@@ -1,0 +1,14 @@
+<%- fields_for "multi_objs[]", iform do |f| -%>
+  <tr class="iform">
+    <td>
+      <%= f.hidden_field :section, :value => section_value %>
+      <%= f.text_field :file, :size => 70 -%>
+    </td>
+    <td><%= f.select :file_type, file_types_select_options %></td>
+    <td><%= f.select :action, action_list %></td>
+    <td>&nbsp;</td>
+    <td colspan="3">
+      <%= link_to_function 'Remove', "$(this).up('.iform').remove();" -%>
+    </td>
+  </tr>
+<%- end -%>

@@ -1,0 +1,11 @@
+
+<%- title "Batch Script Files" -%>
+<%= render :partial => 'index_section',
+    :locals => {
+    :action_list => %w[Add Update Delete],
+    :section_value => 'BS',
+    :table_caption => 'Batch Scripts',
+    :form_url => create_bs_section_project_deployments_url(@project),
+    :search_url => bs_section_project_deployments_url(@project)
+  }
+%>
